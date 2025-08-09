@@ -84,20 +84,10 @@ For Software:
 
 
 
-
-
 ### Project Demo
 # Video
 [ **demo video** ](https://github.com/user-attachments/assets/9360b42e-3156-4157-8a9e-d85f7ff5e6c7)
-*Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
-
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
