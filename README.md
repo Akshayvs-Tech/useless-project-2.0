@@ -88,7 +88,7 @@ For Software:
 
 ### Project Demo
 # Video
-![demo video](https://github.com/user-attachments/assets/7cf4b47a-07aa-4fc7-9dbd-46f7e69ea9af)
+![demo video](https://github.com/user-attachments/assets/9360b42e-3156-4157-8a9e-d85f7ff5e6c7)
 *Explain what the video demonstrates*
 
 # Additional Demos
