@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable react/no-unescaped-entities */
 
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { KitchenState, Ingredient, Recipe, CookingItem } from '@/types/kitchen';
