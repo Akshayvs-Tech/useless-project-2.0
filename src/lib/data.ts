@@ -138,6 +138,98 @@ export const INITIAL_INGREDIENTS: Ingredient[] = [
     location: 'cabinet',
     emoji: '🫒',
     color: '#808000'
+  },
+  
+  // Hilariously Absurd Additions
+  {
+    id: 'rainbow-sprinkles',
+    name: 'Rainbow Sprinkles',
+    quantity: 100,
+    unit: 'g',
+    location: 'cabinet',
+    emoji: '🌈',
+    color: '#FF69B4'
+  },
+  {
+    id: 'unicorn-tears',
+    name: 'Unicorn Tears',
+    quantity: 50,
+    unit: 'ml',
+    location: 'fridge',
+    emoji: '🦄',
+    color: '#DDA0DD'
+  },
+  {
+    id: 'dragons-breath-pepper',
+    name: 'Dragons Breath Pepper',
+    quantity: 3,
+    unit: 'pieces',
+    location: 'cabinet',
+    emoji: '🌶️🔥',
+    color: '#DC143C'
+  },
+  {
+    id: 'fairy-dust',
+    name: 'Edible Fairy Dust',
+    quantity: 25,
+    unit: 'g',
+    location: 'cabinet',
+    emoji: '✨',
+    color: '#FFD700'
+  },
+  {
+    id: 'laughing-gas-bubbles',
+    name: 'Laughing Gas Bubbles',
+    quantity: 200,
+    unit: 'ml',
+    location: 'fridge',
+    emoji: '😂',
+    color: '#87CEEB'
+  },
+  {
+    id: 'time-travel-thyme',
+    name: 'Time Travel Thyme',
+    quantity: 15,
+    unit: 'g',
+    location: 'cabinet',
+    emoji: '⏰🌿',
+    color: '#9ACD32'
+  },
+  {
+    id: 'invisible-vanilla',
+    name: 'Invisible Vanilla',
+    quantity: 30,
+    unit: 'ml',
+    location: 'cabinet',
+    emoji: '👻',
+    color: '#F0F8FF'
+  },
+  {
+    id: 'singing-onions',
+    name: 'Singing Onions',
+    quantity: 4,
+    unit: 'pieces',
+    location: 'fridge',
+    emoji: '🧅🎵',
+    color: '#F5F5DC'
+  },
+  {
+    id: 'disco-mushrooms',
+    name: 'Disco Mushrooms',
+    quantity: 8,
+    unit: 'pieces',
+    location: 'fridge',
+    emoji: '🍄🕺',
+    color: '#DEB887'
+  },
+  {
+    id: 'quantum-quinoa',
+    name: 'Quantum Quinoa',
+    quantity: 150,
+    unit: 'g',
+    location: 'cabinet',
+    emoji: '⚛️',
+    color: '#F5DEB3'
   }
 ];
 
@@ -236,5 +328,106 @@ export const RECIPES: Recipe[] = [
     cookingTime: 5,
     emoji: '🥗',
     difficulty: 'easy'
+  },
+  
+  // Absolutely Ridiculous Recipes
+  {
+    id: 'unicorn-latte',
+    name: 'Mystical Unicorn Latte',
+    description: 'A magical coffee that makes you believe in dreams and possibly fly',
+    ingredients: [
+      { ingredientId: 'coffee', quantity: 20 },
+      { ingredientId: 'unicorn-tears', quantity: 30 },
+      { ingredientId: 'rainbow-sprinkles', quantity: 5 },
+      { ingredientId: 'fairy-dust', quantity: 2 }
+    ],
+    cookingTime: 7,
+    emoji: '🦄☕',
+    difficulty: 'legendary'
+  },
+  {
+    id: 'time-travelers-breakfast',
+    name: 'Time Travelers Breakfast',
+    description: 'Eggs that cook themselves in the past while you eat them in the future',
+    ingredients: [
+      { ingredientId: 'eggs', quantity: 2 },
+      { ingredientId: 'time-travel-thyme', quantity: 3 },
+      { ingredientId: 'butter', quantity: 10 },
+      { ingredientId: 'fairy-dust', quantity: 1 }
+    ],
+    cookingTime: -5,
+    emoji: '⏰🍳',
+    difficulty: 'impossible'
+  },
+  {
+    id: 'laughing-soup',
+    name: 'Giggling Tomato Soup',
+    description: 'A soup so funny, it tells jokes while you eat it',
+    ingredients: [
+      { ingredientId: 'tomatoes', quantity: 3 },
+      { ingredientId: 'laughing-gas-bubbles', quantity: 100 },
+      { ingredientId: 'singing-onions', quantity: 1 },
+      { ingredientId: 'salt', quantity: 2 }
+    ],
+    cookingTime: 12,
+    emoji: '😂🍅',
+    difficulty: 'hilarious'
+  },
+  {
+    id: 'disco-salad',
+    name: 'Saturday Night Fever Salad',
+    description: 'A salad that dances in your mouth and makes you boogie',
+    ingredients: [
+      { ingredientId: 'lettuce', quantity: 1 },
+      { ingredientId: 'disco-mushrooms', quantity: 3 },
+      { ingredientId: 'rainbow-sprinkles', quantity: 8 },
+      { ingredientId: 'olive-oil', quantity: 15 }
+    ],
+    cookingTime: 6,
+    emoji: '🕺🥗',
+    difficulty: 'groovy'
+  },
+  {
+    id: 'invisible-pasta',
+    name: 'Now You See It, Now You Dont Pasta',
+    description: 'Pasta that disappears when you are not looking at it',
+    ingredients: [
+      { ingredientId: 'pasta', quantity: 100 },
+      { ingredientId: 'invisible-vanilla', quantity: 20 },
+      { ingredientId: 'cheese', quantity: 40 },
+      { ingredientId: 'fairy-dust', quantity: 5 }
+    ],
+    cookingTime: 999,
+    emoji: '👻🍝',
+    difficulty: 'sneaky'
+  },
+  {
+    id: 'quantum-risotto',
+    name: 'Schroedingers Quantum Risotto',
+    description: 'A risotto that exists in all possible states until observed',
+    ingredients: [
+      { ingredientId: 'quantum-quinoa', quantity: 80 },
+      { ingredientId: 'milk', quantity: 150 },
+      { ingredientId: 'cheese', quantity: 50 },
+      { ingredientId: 'dragons-breath-pepper', quantity: 1 }
+    ],
+    cookingTime: Math.PI,
+    emoji: '⚛️🍚',
+    difficulty: 'quantum'
+  },
+  {
+    id: 'fire-breathing-sandwich',
+    name: 'Dragons Lunch Special',
+    description: 'A sandwich so spicy, it literally breathes fire and complains about the weather',
+    ingredients: [
+      { ingredientId: 'lettuce', quantity: 1 },
+      { ingredientId: 'tomatoes', quantity: 2 },
+      { ingredientId: 'cheese', quantity: 30 },
+      { ingredientId: 'dragons-breath-pepper', quantity: 2 },
+      { ingredientId: 'laughing-gas-bubbles', quantity: 50 }
+    ],
+    cookingTime: 15,
+    emoji: '🔥🥪',
+    difficulty: 'apocalyptic'
   }
 ];

@@ -16,9 +16,9 @@ export interface Recipe {
     ingredientId: string;
     quantity: number;
   }>;
-  cookingTime: number; // in seconds
+  cookingTime: number; // in seconds (or mathematical constants for chaos)
   emoji: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: 'easy' | 'medium' | 'hard' | 'legendary' | 'impossible' | 'hilarious' | 'groovy' | 'sneaky' | 'quantum' | 'apocalyptic';
 }
 
 export interface CookingItem {
