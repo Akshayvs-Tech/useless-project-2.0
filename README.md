@@ -88,7 +88,7 @@ For Software:
 
 ### Project Demo
 # Video
-
+![demo video](./screenshots/demo.mp4)
 *Explain what the video demonstrates*
 
 # Additional Demos
