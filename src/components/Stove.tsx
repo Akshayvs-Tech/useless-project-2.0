@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useKitchen } from '@/lib/kitchen-context';
-import { useRouter } from 'next/navigation';
-import { Flame, CheckCircle } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useKitchen } from "@/lib/kitchen-context";
+import { useRouter } from "next/navigation";
+import { Flame, CheckCircle } from "lucide-react";
 
 export function Stove() {
   const { state, dispatch } = useKitchen();
@@ -16,36 +16,41 @@ export function Stove() {
     if (state.currentCooking) {
       const startTime = state.currentCooking.startTime;
       const duration = state.currentCooking.duration;
-      
+
       const interval = setInterval(() => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min((elapsed / duration) * 100, 100);
         setCookingProgress(progress);
-        
+
         if (progress >= 100) {
           setIsFinished(true);
           clearInterval(interval);
-          
+
           // Save completed dish to localStorage
-          if (typeof window !== 'undefined') {
-            const completedDishes = JSON.parse(localStorage.getItem('completedDishes') || '[]');
+          if (typeof window !== "undefined") {
+            const completedDishes = JSON.parse(
+              localStorage.getItem("completedDishes") || "[]"
+            );
             const newDish = {
               id: Date.now(),
               name: state.currentCooking!.recipeName,
               emoji: state.currentCooking!.emoji,
               completedAt: new Date().toISOString(),
-              uselessness: 'Maximum'
+              uselessness: "Maximum",
             };
             completedDishes.push(newDish);
-            localStorage.setItem('completedDishes', JSON.stringify(completedDishes));
+            localStorage.setItem(
+              "completedDishes",
+              JSON.stringify(completedDishes)
+            );
           }
-          
+
           setTimeout(() => {
-            dispatch({ type: 'FINISH_COOKING' });
+            dispatch({ type: "FINISH_COOKING" });
             setIsFinished(false);
             setCookingProgress(0);
             // Redirect to completed dishes page
-            router.push('/completed-dishes');
+            router.push("/completed-dishes");
           }, 2000);
         }
       }, 100);
@@ -65,30 +70,29 @@ export function Stove() {
         whileHover={{ scale: 1.02, rotate: 1 }}
         animate={{
           boxShadow: [
-            '0 25px 50px -12px rgba(239, 68, 68, 0.3)',
-            '0 25px 50px -12px rgba(251, 146, 60, 0.5)',
-            '0 25px 50px -12px rgba(239, 68, 68, 0.3)'
-          ]
+            "0 25px 50px -12px rgba(239, 68, 68, 0.3)",
+            "0 25px 50px -12px rgba(251, 146, 60, 0.5)",
+            "0 25px 50px -12px rgba(239, 68, 68, 0.3)",
+          ],
         }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         {/* Stove Top */}
         <div className="absolute top-4 left-4 right-4 h-48 bg-gradient-to-b from-gray-900 via-black to-gray-800 rounded-xl border-4 border-orange-400 shadow-inner">
-          
           {/* Burner (Main Cooking Area) */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             {/* Burner Ring - More Colorful */}
-            <motion.div 
+            <motion.div
               className="relative w-32 h-32 rounded-full border-4 border-orange-500 bg-gradient-radial from-yellow-600 to-red-800"
               animate={{
-                borderColor: ['#f97316', '#ef4444', '#eab308', '#f97316']
+                borderColor: ["#f97316", "#ef4444", "#eab308", "#f97316"],
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               {/* Inner Burner Rings */}
               <div className="absolute top-2 left-2 right-2 bottom-2 rounded-full border-3 border-yellow-400"></div>
               <div className="absolute top-4 left-4 right-4 bottom-4 rounded-full border-2 border-orange-300"></div>
-              
+
               {/* Flames when cooking */}
               <AnimatePresence>
                 {state.stoveOccupied && !isFinished && (
@@ -136,12 +140,19 @@ export function Stove() {
                     <div className="relative">
                       {/* Pan */}
                       <div className="w-24 h-4 bg-gradient-to-b from-gray-600 to-gray-800 rounded-full border-2 border-gray-500"></div>
-                      
+
                       {/* Food Item */}
                       <motion.div
                         className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl"
-                        animate={isFinished ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}}
-                        transition={{ duration: 0.5, repeat: isFinished ? 3 : 0 }}
+                        animate={
+                          isFinished
+                            ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }
+                            : {}
+                        }
+                        transition={{
+                          duration: 0.5,
+                          repeat: isFinished ? 3 : 0,
+                        }}
                       >
                         {state.currentCooking.emoji}
                       </motion.div>
@@ -206,9 +217,15 @@ export function Stove() {
           {/* Digital Display */}
           <div className="absolute top-4 right-4 w-16 h-8 bg-black rounded border border-gray-500 flex items-center justify-center">
             <div className="text-green-400 text-sm font-mono">
-              {state.stoveOccupied ? (
-                isFinished ? 'DONE' : `${Math.ceil((100 - cookingProgress) / 100 * (state.currentCooking?.duration || 0) / 1000)}s`
-              ) : 'OFF'}
+              {state.stoveOccupied
+                ? isFinished
+                  ? "DONE"
+                  : `${Math.ceil(
+                      (((100 - cookingProgress) / 100) *
+                        (state.currentCooking?.duration || 0)) /
+                        1000
+                    )}s`
+                : "OFF"}
             </div>
           </div>
         </div>
@@ -227,37 +244,38 @@ export function Stove() {
         </AnimatePresence>
 
         {/* Brand Label - More Fun */}
-        <motion.div 
+        <motion.div
           className="absolute top-2 left-4 text-yellow-300 text-sm font-bold flex items-center space-x-1"
           animate={{ opacity: [0.8, 1, 0.8] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <span>🔥</span>
-          <span>MEGA CHEF 9000</span>
+          <span>FLAME MASTER PRO</span>
           <span>🔥</span>
         </motion.div>
       </motion.div>
 
       {/* Stove Label - More Fun */}
-      <motion.div 
+      <motion.div
         className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-center"
         animate={{ y: [0, -3, 0] }}
         transition={{ duration: 2.5, repeat: Infinity }}
       >
         <div className="text-lg font-bold text-red-600 flex items-center space-x-2">
           <span>🔥</span>
-          <span>Ultimate Cooking Machine</span>
+          <span>Dragon's Breath Stove</span>
           <span>🔥</span>
         </div>
-        <motion.div 
+        <motion.div
           className="text-sm text-orange-600 mt-1"
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          {state.stoveOccupied ? 
-            (isFinished ? '🎉 MASTERPIECE READY! 🎉' : `🔥 Creating ${state.currentCooking?.recipeName} Magic! 🔥`) : 
-            '✨ Ready for culinary adventures! ✨'
-          }
+          {state.stoveOccupied
+            ? isFinished
+              ? "🎉 CULINARY MAGIC COMPLETE! 🎉"
+              : `🔥 Cooking ${state.currentCooking?.recipeName} with flames! 🔥`
+            : "🍳 Ready to ignite some kitchen chaos! 🍳"}
         </motion.div>
       </motion.div>
     </div>
